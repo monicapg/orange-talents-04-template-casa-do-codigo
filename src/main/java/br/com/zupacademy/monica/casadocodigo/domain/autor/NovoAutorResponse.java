@@ -1,4 +1,4 @@
-package br.com.zupacademy.monica.casadocodigo.domain;
+package br.com.zupacademy.monica.casadocodigo.domain.autor;
 
 public class NovoAutorResponse {
     private String nome, descricao;

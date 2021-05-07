@@ -1,14 +1,13 @@
-package br.com.zupacademy.monica.casadocodigo.domain;
+package br.com.zupacademy.monica.casadocodigo.domain.autor;
 
 import org.hibernate.validator.constraints.Length;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 @Entity
 public class Autor {
@@ -20,6 +19,7 @@ public class Autor {
     private String nome;
     @Email
     @NotBlank
+    @Column(unique = true)
     private String email;
     @NotBlank
     @Length(max = 400)
@@ -32,7 +32,7 @@ public class Autor {
     public Autor(String nome, String email, String descricao) {
         // this.id = id;
         this.nome = nome;
-        this.email = email;
+        this.email = email.toLowerCase();
         this.descricao = descricao;
     }
 

@@ -1,4 +1,4 @@
-package br.com.zupacademy.monica.casadocodigo.domain;
+package br.com.zupacademy.monica.casadocodigo.domain.autor;
 
 import org.hibernate.validator.constraints.Length;
 

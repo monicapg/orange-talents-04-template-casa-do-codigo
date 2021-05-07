@@ -1,8 +1,8 @@
 package br.com.zupacademy.monica.casadocodigo.controller;
 
-import br.com.zupacademy.monica.casadocodigo.domain.Autor;
-import br.com.zupacademy.monica.casadocodigo.domain.NovoAutorRequest;
-import br.com.zupacademy.monica.casadocodigo.domain.NovoAutorResponse;
+import br.com.zupacademy.monica.casadocodigo.domain.autor.Autor;
+import br.com.zupacademy.monica.casadocodigo.domain.autor.NovoAutorRequest;
+import br.com.zupacademy.monica.casadocodigo.domain.autor.NovoAutorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @RestController
@@ -20,11 +19,6 @@ public class AutorController {
 
     @Autowired
     EntityManager entityManager;
-
-    @GetMapping("/listar-autores")
-    public String listarAutores() {
-        return "Controller tá ok";
-    }
 
     @PostMapping
     @Transactional
