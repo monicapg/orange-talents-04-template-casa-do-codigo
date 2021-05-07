@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  cdc-db:
+    image: postgres:9.6
+    container_name: "cdcdb"
+    environment:
+      POSTGRES_DB: "cdcdb"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      TZ: "GMT"
+    volumes:
+      - '/home/monica/dev/postgres/cdcdb:/var/lib/postgresql/data'
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres-cdcdb
+
+  pgadmin4:
+    image: dpage/pgadmin4:4.10
+    container_name: "pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin"
+      PGADMIN_DEFAULT_PASSWORD: "secret"
+    ports:
+      - "8082:80"
+    networks:
+      - pgadmin
+
+networks:
+  postgres-cdcdb:
+  pgadmin:
